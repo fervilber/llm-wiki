@@ -1,0 +1,27 @@
+# Archivos generados por el sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Obsidian (datos locales, no compartir)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# Archivos temporales
+*.tmp
+*.bak
+*~
+
+# Datos sensibles en raw (opcional: descomenta si usas datos privados)
+# raw/
+
+# Logs del sistema operativo
+*.log
