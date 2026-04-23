@@ -46,15 +46,15 @@ Si el script `scripts/lint.py` está disponible, ejecutarlo sobre las páginas m
   ```
 - Actualizar `wiki/index.md` con las nuevas páginas.
 
-### Paso 8 — Sincronizar con GitHub ⬆️
-Ejecutar el procedimiento de la skill `.agentic/skills/git.md`:
+### Paso 8 — Commit local
+Guardar los cambios en git localmente (ver `.agentic/skills/git.md`):
 ```bash
 git add -A
 git commit -m "procesa(fuentes): <nombre descriptivo de la fuente procesada>"
-git push origin main
 ```
-Confirmar al usuario con el resultado del push.
+El push a GitHub **no es automático** — se hace solo cuando el usuario lo pide
+o al cerrar la sesión de trabajo.
 
 ### Paso 9 — Informar al usuario
 Listar brevemente: páginas creadas, páginas actualizadas, posibles contradicciones detectadas.
-Indicar que los cambios están sincronizados en GitHub.
+Indicar el número de commits locales pendientes de push si el usuario quiere sincronizar.

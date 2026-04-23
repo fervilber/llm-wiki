@@ -46,11 +46,11 @@ Añadir entrada en `wiki/registros/log.md`:
 - Acciones tomadas: ...
 ```
 
-### Paso 8 — Sincronizar con GitHub ⬆️
+### Paso 8 — Commit local
 Si se realizaron cambios (enlaces corregidos, páginas actualizadas, etc.):
 ```bash
 git add -A
 git commit -m "mantiene: revisión YYYY-MM-DD — <resumen de acciones>"
-git push origin main
 ```
 Si no hubo cambios → informar al usuario y omitir el commit.
+El push a GitHub **no es automático** — ejecutar solo si el usuario lo pide.

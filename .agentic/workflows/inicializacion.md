@@ -21,18 +21,19 @@ Comprobar la existencia de:
 
 Si alguno falta → crearlo usando el template vacío correspondiente.
 
-### Paso 3 — Verificar estado Git ⬆️
+### Paso 3 — Verificar estado Git
 ```bash
 git status
-git log --oneline -5
+git log --oneline origin/main..HEAD
 git remote -v
 ```
 Informar al usuario de:
 - Rama activa (`git branch --show-current`)
-- Número de commits pendientes de push (si los hay)
+- Commits locales pendientes de push (si los hay)
 - Remoto configurado (debe apuntar a `github.com/fervilber/llm-wiki`)
 
-Si hay commits locales sin push → ejecutar `git push origin main` para sincronizar.
+Si hay commits locales sin push → **preguntar al usuario** si quiere hacer push ahora.
+No ejecutar push automáticamente durante la inicialización.
 
 ### Paso 4 — Cargar skills activas
 El agente debe conocer las skills disponibles:

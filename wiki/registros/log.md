@@ -17,7 +17,7 @@ Formato de entrada:
 - Detalle 2
 ```
 
-Tipos válidos: `init` | `ingest` | `query` | `review` | `manual`
+Tipos válidos: `init` | `procesa` | `consulta` | `mantiene` | `diagrama` | `config` | `manual`
 
 ---
 
@@ -27,4 +27,15 @@ Tipos válidos: `init` | `ingest` | `query` | `review` | `manual`
 - Workflows base configurados: `inicializacion.md`, `ingesta.md`, `revision.md`
 - Templates creados: `nota-fuente.md`, `nota-entidad.md`, `nota-concepto.md`
 - Índice general inicializado: `wiki/index.md`
-- Estado: Proyecto operativo. Pendiente de primera ingesta de fuentes.
+- Estado: Proyecto operativo. Pendiente de primera fuente.
+
+## [2026-04-23] config | Configuración Completa del Sistema
+- Scripts añadidos: `youtube_to_raw.py`, `pdf_to_raw.py`, `lint.py`, `search.py`
+- Documentación creada: `doc/user-guide.md`, `doc/architecture.md`, `doc/faq.md`, `doc/web-clipper-setup.md`
+- Skill Excalidraw integrada: `.agentic/skills/excalidraw.md` + referencias técnicas
+- Carpeta de diagramas creada: `wiki/diagramas/`
+- Skill Git integrada: `.agentic/skills/git.md` — sincronización automática con GitHub
+- Workflows actualizados: todos incluyen paso de `git push` automático al finalizar
+- Vocabulario normalizado: `procesar` en lugar de anglicismo `ingestar`
+- README y guías de usuario completamente actualizados
+- Estado: Sistema listo para primera fuente. Skills y workflows operativos.

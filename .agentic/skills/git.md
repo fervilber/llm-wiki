@@ -1,32 +1,76 @@
-# Skill: Git — Sincronización Automática con GitHub
+# Skill: Git — Control de Versiones del Proyecto
 
-## Propósito
+## Estrategia General
 
-Mantener el repositorio de GitHub sincronizado con cada operación significativa del
-agente: procesamiento de fuentes, creación de notas en la wiki, mantenimiento y
-organización. El usuario nunca tiene que pensar en hacer un commit manual.
+El agente distingue entre dos operaciones Git independientes:
+
+| Operación | Cuándo | Automático |
+|-----------|--------|------------|
+| `git add + commit` | Al terminar cada operación significativa | ✅ Sí |
+| `git push` | A petición del usuario, o al cerrar sesión | ❌ No automático |
+
+**El commit local es barato y frecuente. El push a GitHub es bajo demanda.**
+
+Esto evita generar tráfico de red innecesario en cada pequeño cambio, y permite
+al usuario revisar los cambios antes de publicarlos en el remoto.
 
 ---
 
-## Regla Fundamental
+## Regla 1 — Commit Local (automático por el agente)
 
-> **Después de CUALQUIER operación que modifique archivos del proyecto, el agente
-> DEBE ejecutar automáticamente el ciclo git: `add → commit → push`.**
+El agente hace `git add + commit` al finalizar cada operación **significativa**:
 
-Esto incluye:
-- Procesar un archivo de `/raw/` (se crean notas en `/wiki/`)
-- Añadir un archivo a `/raw/` desde el agente
-- Crear o editar una nota en `/wiki/`
-- Crear un diagrama en `/wiki/diagramas/`
-- Actualizar `wiki/index.md` o `wiki/registros/log.md`
-- Ejecutar una revisión de mantenimiento con cambios
+✅ **Hacer commit** al terminar:
+- Procesamiento completo de una fuente (`/raw/` → `/wiki/`)
+- Creación o edición de notas en `/wiki/`
+- Nuevo diagrama Excalidraw guardado
+- Revisión de mantenimiento con cambios efectivos
+- Actualización de `wiki/index.md` o `wiki/registros/log.md`
+
+❌ **NO hacer commit** en pasos intermedios:
+- Ediciones parciales de un archivo mientras aún trabaja en él
+- Correcciones menores de formato durante una sesión activa
+- Cambios de configuración menores en mismo turno que otros cambios
+
+> **Regla práctica:** Si el agente está en medio de una tarea compleja
+> (por ejemplo, procesar una fuente que crea 5 notas), hace **un solo commit**
+> al terminar toda la tarea, no 5 commits intermedios.
+
+---
+
+## Regla 2 — Push a GitHub (bajo demanda)
+
+El push **solo se ejecuta** en estos casos:
+
+### A) El usuario lo pide explícitamente
+
+Frases que activan el push:
+- *«Sube los cambios a GitHub»*
+- *«Sincroniza con GitHub»*
+- *«Haz push»*
+- *«Guarda en remoto»*
+- *«Actualiza el repositorio»*
+
+### B) Al cerrar una sesión de trabajo importante
+
+Cuando el usuario indica que ha terminado la sesión, el agente propone el push:
+> *«He completado las operaciones. Hay X commits locales pendientes de subir a GitHub.
+> ¿Quieres que haga push ahora?»*
+
+### C) Operaciones especialmente relevantes
+
+Solo para cambios estructurales que convenga respaldar inmediatamente:
+- Primera fuente procesada del proyecto
+- Cambios en `.agentic/` (skills, workflows, templates)
+- Cambios en `RULES.md` o `README.md`
+
+En estos casos el agente **pregunta** antes de hacer push, no lo ejecuta sin confirmación.
 
 ---
 
 ## Convención de Mensajes de Commit
 
-El formato estándar es:
-
+Formato estándar:
 ```
 <tipo>(<ámbito>): <descripción breve en español>
 ```
@@ -44,129 +88,99 @@ El formato estándar es:
 | `docs` | Cambios en doc/ o README |
 
 ### Ámbito (opcional)
+Nombre corto del tema o sección afectada: `fuentes`, `conceptos`, `log`, etc.
 
-Nombre corto del archivo, tema o sección afectada. Ejemplo: `fuentes`, `conceptos`, `log`.
-
-### Ejemplos de mensajes reales
-
+### Ejemplos
 ```bash
 git commit -m "procesa(fuentes): añade resumen del video 'Intro a LLMs'"
-git commit -m "wiki(conceptos): nueva nota sobre RAG y modelos de embedding"
+git commit -m "wiki(conceptos): nueva nota sobre RAG y embedding"
 git commit -m "diagrama: arquitectura del sistema LLM Wiki"
 git commit -m "mantiene: corrige enlaces rotos y actualiza índice"
-git commit -m "raw: importa PDF 'informe-openai-2024'"
 git commit -m "config: actualiza skill excalidraw con nuevos anti-patrones"
+# Commit de sesión (agrupa varias operaciones menores):
+git commit -m "wiki: sesión 2026-04-23 — 3 fuentes, 7 notas, mantenimiento"
 ```
 
 ---
 
-## Procedimiento de Sincronización (ejecutar siempre al final de cada operación)
+## Procedimiento de Commit Local
 
-### Paso 1 — Verificar estado del repositorio
 ```bash
+# 1. Verificar qué hay para commitear
 git status
-```
-Si no hay cambios → no hacer nada (indicar "Sin cambios para guardar").
 
-### Paso 2 — Añadir todos los cambios al staging
-```bash
+# 2. Añadir todos los cambios
 git add -A
-```
 
-> **¿Qué incluye `-A`?**
-> - Archivos nuevos (notas creadas, archivos raw añadidos)
-> - Archivos modificados (notas actualizadas, índice, log)
-> - Archivos eliminados (si se borró algo intencionalmente)
-
-### Paso 3 — Hacer el commit con mensaje descriptivo
-```bash
+# 3. Commit con mensaje descriptivo
 git commit -m "<tipo>(<ámbito>): <descripción>"
 ```
 
-Construir el mensaje a partir de:
-- El **tipo** según la tabla de convención
-- El **ámbito** = nombre del tema o archivo principal afectado
-- La **descripción** = resumen de una línea en español de lo que se hizo
+Si `git status` dice "nothing to commit" → no hacer nada, informar al usuario.
 
-### Paso 4 — Enviar a GitHub
+---
+
+## Procedimiento de Push
+
 ```bash
+# Ver commits pendientes de push antes de subir
+git log --oneline origin/main..HEAD
+
+# Push al remoto
 git push origin main
 ```
 
-> Si la rama se llama `master` en lugar de `main`, usar `git push origin master`.
-> El agente debe verificar la rama activa con `git branch --show-current` si hay duda.
+> Si la rama activa no es `main`, verificar con `git branch --show-current`.
 
 ---
 
 ## Manejo de Errores
 
-### Error: "nothing to commit"
-→ No hay cambios que guardar. Indicar al usuario y continuar.
+### "nothing to commit"
+→ Sin cambios pendientes. Informar y continuar.
 
-### Error: "rejected" en el push (conflicto remoto)
+### "rejected" en el push (conflicto con el remoto)
 ```bash
 git pull --rebase origin main
 git push origin main
 ```
-Si persiste el conflicto, NO forzar el push. Indicar al usuario:
-> *«Hay cambios en GitHub que no están en local. Necesito que revises el conflicto manualmente con `git status` para no perder datos.»*
+Si persiste: NO forzar el push. Decir al usuario:
+> *«Hay cambios en GitHub que no están en local. Revisa el conflicto con `git status`.»*
 
-### Error: "not a git repository"
-→ El repositorio no está inicializado. Indicar al usuario:
-> *«El directorio no tiene git inicializado. ¿Quieres que ejecute `git init && git remote add origin <URL>`?»*
+### "not a git repository"
+→ Decir al usuario:
+> *«El directorio no tiene git inicializado. ¿Ejecuto `git init && git remote add origin <URL>`?»*
 
-### Error: autenticación SSH/HTTPS
-→ El agente no puede resolver credenciales por sí solo. Indicar al usuario que configure su acceso a GitHub:
-> *«Git pide credenciales. Configura tu acceso con `gh auth login` (GitHub CLI) o con una clave SSH.»*
-
----
-
-## Cuándo NO hacer push automático
-
-Solo omitir el push automático si el usuario indica explícitamente:
-- *«Guarda los cambios pero no subas a GitHub todavía»*
-- *«Trabaja en modo offline»*
-- *«Acumula los cambios y haz un solo commit al final»*
-
-En ese caso, hacer el `git add + commit` pero omitir el `push`, e indicar los commits pendientes.
+### Error de autenticación
+→ Decir al usuario:
+> *«Git pide credenciales. Configura acceso con `gh auth login` o con clave SSH.»*
 
 ---
 
-## Comandos Útiles de Referencia
+## Comandos de Referencia
 
 ```bash
-# Ver estado actual
+# Commits pendientes de push
+git log --oneline origin/main..HEAD
+
+# Estado del repositorio
 git status
 
-# Ver últimos commits
+# Historial reciente
 git log --oneline -10
 
-# Ver rama activa
+# Rama activa
 git branch --show-current
 
-# Ver diferencias antes de commitear
+# Diferencias sin commitear
 git diff --stat
 
-# Deshacer último commit (sin perder los cambios)
+# Deshacer último commit (conserva cambios)
 git reset --soft HEAD~1
 
-# Ver el remoto configurado
+# Remoto configurado
 git remote -v
 
-# Sincronizar con el remoto (sin push)
+# Traer cambios remotos sin push
 git pull --rebase origin main
 ```
-
----
-
-## Commit Combinado (múltiples operaciones en sesión larga)
-
-Si en la misma sesión se hacen varias operaciones menores (crear 3 notas, arreglar
-2 enlaces y actualizar el índice), el agente puede agruparlas en un solo commit
-al final de la sesión usando la convención:
-
-```bash
-git commit -m "wiki: sesión YYYY-MM-DD — X notas nuevas, Y actualizadas, mantenimiento"
-```
-
-Esto mantiene el historial limpio sin un commit por cada archivo individual.
