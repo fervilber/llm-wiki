@@ -9,7 +9,7 @@ El usuario dice: `«Procesa [ruta o nombre del archivo]»` o `«Analiza y proces
 ## Pasos
 
 ### Paso 1 — Cargar la skill
-Leer `.agentic/skills/ingesta.md` para aplicar las reglas de procesamiento.
+Leer `.agents/skills/ingesta/SKILL.md` para aplicar las reglas de procesamiento.
 
 ### Paso 2 — Leer la fuente
 - Acceder al archivo indicado en `/raw/` (nunca modificarlo).
@@ -30,7 +30,7 @@ antes de escribir en la wiki. *(Opcional: omitir si el usuario ha dado autonomí
 Aplicar la lógica de `ingesta.md`:
 - Consultar `wiki/index.md` para detectar páginas relacionadas existentes.
 - Crear o actualizar páginas en `/wiki/fuentes/`, `/wiki/entidades/`, `/wiki/conceptos/`.
-- Usar los templates de `.agentic/templates/`.
+- Usar los templates de `.agents/templates/`.
 - Insertar `[[wikilinks]]` y verificar bidireccionalidad.
 
 ### Paso 6 — Validar con linter
@@ -47,7 +47,7 @@ Si el script `scripts/lint.py` está disponible, ejecutarlo sobre las páginas m
 - Actualizar `wiki/index.md` con las nuevas páginas.
 
 ### Paso 8 — Commit local
-Guardar los cambios en git localmente (ver `.agentic/skills/git.md`):
+Guardar los cambios en git localmente (ver `.agents/skills/git/SKILL.md`):
 ```bash
 git add -A
 git commit -m "procesa(fuentes): <nombre descriptivo de la fuente procesada>"

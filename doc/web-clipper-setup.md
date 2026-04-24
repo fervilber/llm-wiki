@@ -113,7 +113,7 @@ En dispositivos Apple, puedes usar la hoja de compartir de Obsidian:
 La forma más simple: copia el contenido de la página web en un nuevo archivo `.md`
 dentro de `/raw/`, respetando el frontmatter estándar del proyecto.
 
-Puedes usar la plantilla de `.agentic/templates/nota-fuente.md` como base.
+Puedes usar la plantilla de `.agents/templates/nota-fuente.md` como base.
 
 ---
 

@@ -1,7 +1,7 @@
 # Excalidraw Cheatsheet — Referencia Técnica Completa
 
 > Referencia interna del agente. Para instrucciones de uso del proyecto, ver
-> `.agentic/skills/excalidraw.md`.
+> `.agents/skills/excalidraw/SKILL.md`.
 
 ---
 

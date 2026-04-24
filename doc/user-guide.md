@@ -40,16 +40,20 @@ a Obsidian: tú ves los cambios en tiempo real mientras el agente los ejecuta.
 |--------|-------------|
 | **Claude** (claude.ai o app de escritorio) | Conecta al proyecto vía carga de archivos o MCP |
 | **Antigravity** | IDE con IA integrada; accede directamente al repo |
-| **OpenCode / Codex** | Agente de terminal; usa `RULES.md` + `.agentic/` como contexto |
+| **OpenCode / Codex** | Agente de terminal; usa `RULES.md` + `.agents/` como contexto |
 
 **Cómo iniciar una sesión con el agente:**
 
-Envía al agente este prompt de inicialización al comenzar:
+Puedes usar un **Comando Mínimo Viable (MVC)** si el agente ya conoce el proyecto:
+
+> *«Inicia sesión»* o *«Carga el protocolo»*
+
+Si es la primera vez que trabajas con un agente en este repositorio, envíale este prompt detallado:
 
 > *"Actúa como mantenedor de mi LLM Wiki. Estamos en la raíz del proyecto.
 > Lee en este orden:
 > 1. `RULES.md` — para entender las reglas del sistema
-> 2. `.agentic/workflows/inicializacion.md` — para el protocolo de arranque
+> 2. `.agents/workflows/inicializacion.md` — para el protocolo de arranque
 > 3. `wiki/index.md` — para conocer el estado actual del conocimiento
 > 4. `wiki/registros/log.md` — para saber qué se hizo por última vez
 >
@@ -87,7 +91,7 @@ Requiere tener instalada al menos una librería de extracción (ver `scripts/req
 
 ### Opción D — Texto o Markdown Manual
 Copia el contenido en un nuevo archivo `.md` dentro de `/raw/`.
-Usa el template `.agentic/templates/nota-fuente.md` como base para el frontmatter.
+Usa el template `.agents/templates/nota-fuente.md` como base para el frontmatter.
 
 ### Opción E — Imagen o Captura de Pantalla
 1. Guarda la imagen en `/raw/assets/`.
@@ -178,7 +182,7 @@ python scripts/lint.py wiki/fuentes # Solo un directorio
 |-----------|------------|
 | Añadir archivos a `/raw/` | Modificar o borrar archivos de `/raw/` |
 | Leer y navegar `/wiki/` en Obsidian | Editar notas de `/wiki/` sin avisar al agente |
-| Editar `.agentic/` con intención deliberada | Cambiar `RULES.md` sin revisar el impacto |
+| Editar `.agents/` con intención deliberada | Cambiar `RULES.md` sin revisar el impacto |
 | Pedir al agente que añada una nota | Crear notas en `/wiki/` sin seguir el template |
 
 ---

@@ -200,6 +200,6 @@ Para crear un diagrama manualmente (modo sin servidor), crea un archivo
 
 ## Referencias
 
-- Skill completa con API y herramientas MCP: `.agentic/skills/references/excalidraw-cheatsheet.md`
+- Skill completa con API y herramientas MCP: `.agents/skills/excalidraw/references/excalidraw-cheatsheet.md`
 - Repositorio del servidor MCP: https://github.com/yctimlin/mcp_excalidraw
 - Plugin de Obsidian: https://github.com/zsviczian/obsidian-excalidraw-plugin

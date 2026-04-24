@@ -6,7 +6,7 @@ Este archivo define la constitución, la estructura y las reglas de operación p
 
 Cualquier agente debe respetar estrictamente esta jerarquía para garantizar la integridad del sistema:
 
-* /.agentic/ (El Cerebro): Instrucciones de bajo nivel para el agente.
+* /.agents/ (El Cerebro): Instrucciones de bajo nivel para el agente.
   * skills/: Capacidades lógicas y reglas de procesamiento específicas.
   * workflows/: Algoritmos secuenciales para tareas complejas (ej. inicialización, ingesta).
   * templates/: Esquemas YAML y Markdown para la estandarización de notas.
@@ -24,9 +24,9 @@ Cualquier agente debe respetar estrictamente esta jerarquía para garantizar la 
 Al iniciar una sesión o tarea, el Agente debe seguir este orden de lectura:
 
 1. Consultar este archivo RULES.md para entender el entorno.
-2. Localizar el flujo de trabajo correspondiente en /.agentic/workflows/.
-3. Cargar las reglas lógicas necesarias de /.agentic/skills/.
-4. Prioridad de Verdad: Las instrucciones en /.agentic/ tienen prioridad sobre la documentación en /doc/.
+2. Localizar el flujo de trabajo correspondiente en /.agents/workflows/.
+3. Cargar las reglas lógicas necesarias de /.agents/skills/.
+4. Prioridad de Verdad: Las instrucciones en /.agents/ tienen prioridad sobre la documentación en /doc/.
 
 # 3. 🛠 Reglas Operativas Core
 

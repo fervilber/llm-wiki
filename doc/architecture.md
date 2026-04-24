@@ -42,8 +42,8 @@ El agente escribe; tú ves los cambios en tiempo real en Obsidian.
 │                                                     │
 │  Gobernado por:                                     │
 │  ├── RULES.md  (constitución)                       │
-│  ├── .agentic/skills/  (reglas lógicas)             │
-│  └── .agentic/workflows/  (algoritmos)              │
+│  ├── .agents/skills/  (reglas lógicas)             │
+│  └── .agents/workflows/  (algoritmos)              │
 └───────┬───────────────────────────┬─────────────────┘
         │                           │
 ┌───────▼────────────┐   ┌──────────▼─────────────────┐
@@ -74,7 +74,7 @@ Punto de entrada obligatorio para todo agente. Define:
 - Reglas operativas (filtro MVC, inmutabilidad, bidireccionalidad)
 - Estándar de metadatos YAML para todas las notas
 
-### `.agentic/` — El Cerebro
+### `.agents/` — El Cerebro
 Instrucciones de máquina con máxima prioridad sobre `/doc/`.
 
 | Carpeta | Contenido | Analogía |

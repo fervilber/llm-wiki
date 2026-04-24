@@ -15,9 +15,9 @@ a este proyecto, o tras una restauración desde Git.
 Comprobar la existencia de:
 - [ ] `wiki/index.md`
 - [ ] `wiki/registros/log.md`
-- [ ] `.agentic/templates/nota-fuente.md`
-- [ ] `.agentic/templates/nota-entidad.md`
-- [ ] `.agentic/templates/nota-concepto.md`
+- [ ] `.agents/templates/nota-fuente.md`
+- [ ] `.agents/templates/nota-entidad.md`
+- [ ] `.agents/templates/nota-concepto.md`
 
 Si alguno falta → crearlo usando el template vacío correspondiente.
 
@@ -37,11 +37,11 @@ No ejecutar push automáticamente durante la inicialización.
 
 ### Paso 4 — Cargar skills activas
 El agente debe conocer las skills disponibles:
-- `.agentic/skills/ingesta.md` → procesamiento de fuentes
-- `.agentic/skills/consulta.md` → respuesta a preguntas
-- `.agentic/skills/mantenimiento.md` → calidad del grafo
-- `.agentic/skills/git.md` → sincronización automática con GitHub ⬆️
-- `.agentic/skills/excalidraw.md` → creación de diagramas
+- `.agents/skills/ingesta/SKILL.md` → procesamiento de fuentes
+- `.agents/skills/consulta/SKILL.md` → respuesta a preguntas
+- `.agents/skills/mantenimiento/SKILL.md` → calidad del grafo
+- `.agents/skills/git/SKILL.md` → sincronización automática con GitHub ⬆️
+- `.agents/skills/excalidraw/SKILL.md` → creación de diagramas
 
 ### Paso 5 — Reportar estado al usuario
 Informar brevemente:

@@ -10,7 +10,7 @@ O automáticamente cada 10 procesos (registrado en el log).
 ## Pasos
 
 ### Paso 1 — Cargar la skill de mantenimiento
-Leer `.agentic/skills/mantenimiento.md`.
+Leer `.agents/skills/mantenimiento/SKILL.md`.
 
 ### Paso 2 — Auditoría estructural
 - Verificar que `wiki/index.md` lista todas las páginas actuales de `/wiki/`.

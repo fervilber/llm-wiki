@@ -30,7 +30,7 @@ La elección no afecta al funcionamiento de la wiki: todos leen los mismos archi
 
 ### ¿Puedo usar la wiki sin el agente, solo con Obsidian?
 Sí para leer. No para procesar. Las notas de `/wiki/` las escribe el agente.
-Puedes crear notas manualmente siguiendo los templates de `.agentic/templates/`,
+Puedes crear notas manualmente siguiendo los templates de `.agents/templates/`,
 pero el mantenimiento de enlaces y el índice debe hacerlo el agente.
 
 ---
@@ -71,7 +71,7 @@ ingestada, añade la fuente a `/raw/` y ejecuta `ingestar [archivo]`.
 
 ### ¿Cómo inicio una nueva sesión?
 Envía al agente este prompt:
-> *"Lee en este orden: 1) `RULES.md` 2) `.agentic/workflows/inicializacion.md`
+> *"Lee en este orden: 1) `RULES.md` 2) `.agents/workflows/inicializacion.md`
 > 3) `wiki/index.md` 4) `wiki/registros/log.md`. Confírmame cuando hayas leído."*
 
 ### ¿Qué pasa si cambio de agente (de Claude a OpenCode, por ejemplo)?
@@ -99,7 +99,7 @@ Sí, pero hazlo con cuidado. Si editas una nota, avisa al agente para que
 actualice los enlaces y el índice correspondientes.
 
 ### ¿Puedo cambiar las reglas de los templates o skills?
-Sí. Los archivos en `.agentic/` son configuración editable. Si cambias una regla,
+Sí. Los archivos en `.agents/` son configuración editable. Si cambias una regla,
 indica al agente que recargue el archivo al inicio de la próxima sesión.
 
 ### ¿Qué hace `revisar wiki`?

@@ -26,4 +26,4 @@ El agente guardará el resultado en esta carpeta.
 
 ---
 
-*Ver instrucciones completas de la skill en `.agentic/skills/excalidraw.md`*
+*Ver instrucciones completas de la skill en `.agents/skills/excalidraw/SKILL.md`*

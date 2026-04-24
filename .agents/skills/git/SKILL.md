@@ -61,7 +61,7 @@ Cuando el usuario indica que ha terminado la sesión, el agente propone el push:
 
 Solo para cambios estructurales que convenga respaldar inmediatamente:
 - Primera fuente procesada del proyecto
-- Cambios en `.agentic/` (skills, workflows, templates)
+- Cambios en `.agents/` (skills, workflows, templates)
 - Cambios en `RULES.md` o `README.md`
 
 En estos casos el agente **pregunta** antes de hacer push, no lo ejecuta sin confirmación.
@@ -84,7 +84,7 @@ Formato estándar:
 | `diagrama` | Nuevo o actualizado diagrama Excalidraw |
 | `raw` | Nuevo archivo añadido a /raw/ |
 | `mantiene` | Revisión de mantenimiento, arreglo de enlaces |
-| `config` | Cambios en .agentic/, scripts/, RULES.md |
+| `config` | Cambios en .agents/, scripts/, RULES.md |
 | `docs` | Cambios en doc/ o README |
 
 ### Ámbito (opcional)

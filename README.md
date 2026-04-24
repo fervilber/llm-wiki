@@ -23,6 +23,55 @@ una sola vez** y lo mantiene actualizado de forma acumulativa:
 
 ---
 
+## 🚀 Cómo empezar un nuevo proyecto
+
+Sigue estos pasos para configurar tu entorno local basado en este repositorio base y desvincularlo del original para trabajar de forma independiente tu proyecto.
+
+### 1. Clonar el repositorio base
+Ejecuta el siguiente comando reemplazando `nombre-de-tu-proyecto` por el nombre que desees para tu carpeta local:
+
+```bash
+git clone https://github.com/fervilber/llm-wiki.git nombre-de-tu-proyecto
+```
+
+### 2. Desvincular del repositorio original
+Para evitar subir cambios accidentalmente al repositorio base, debes eliminar el historial de Git y su configuración remota:
+
+**En Linux o macOS:**
+```bash
+cd nombre-de-tu-proyecto
+rm -rf .git
+```
+
+**En Windows (PowerShell):**
+```powershell
+cd nombre-de-tu-proyecto
+Remove-Item -Recurse -Force .git
+```
+
+### 3. Inicializar el nuevo proyecto
+Crea un nuevo repositorio local independiente:
+
+```bash
+git init
+git add .
+git commit -m "Initial commit: Estructura basada en llm-wiki de @fervilber"
+```
+
+### 4. Conectar con tu propio repositorio
+Crea un repositorio nuevo en tu cuenta de GitHub y ejecuta los siguientes comandos para subir el código:
+
+```bash
+git remote add origin https://github.com/tu-usuario/tu-nuevo-repo.git
+git branch -M main
+git push -u origin main
+```
+
+---
+**Nota:** Asegúrate de revisar el archivo `package.json`, `README.md` o cualquier archivo de configuración para actualizar el nombre del proyecto y las descripciones pertinentes.
+
+---
+
 ## 🛠 Herramientas Necesarias
 
 Este proyecto está diseñado para funcionar con **dos herramientas en paralelo**:
@@ -67,7 +116,7 @@ El agente es quien **escribe y organiza** la wiki. Puedes usar cualquiera de est
 ├── README.md                  # Este archivo
 ├── .gitignore
 │
-├── .agentic/                  # 🧠 Cerebro del agente (no editar sin intención)
+├── .agents/                  # 🧠 Cerebro del agente (no editar sin intención)
 │   ├── skills/
 │   │   ├── ingesta.md         # Reglas de procesamiento de fuentes
 │   │   ├── consulta.md        # Reglas de respuesta a preguntas
@@ -124,10 +173,14 @@ pip install -r scripts/requirements.txt
 ```
 
 ### Paso 3 — Iniciar una sesión de trabajo
-Abre tu agente LLM y envíale el **Prompt de Inicialización**:
+Abre tu agente LLM y envíale el **Comando de Inicio Rápido**:
+
+> *«Inicia sesión»* o *«Carga el protocolo de inicialización»*
+
+Si el agente no conoce el protocolo, puedes enviarle el **Prompt de Inicialización completo**:
 
 > *"Actúa como mantenedor de mi LLM Wiki. Estamos en la raíz del proyecto.
-> Lee en este orden: 1) `RULES.md` 2) `.agentic/workflows/inicializacion.md`
+> Lee en este orden: 1) `RULES.md` 2) `.agents/workflows/inicializacion.md`
 > 3) `wiki/index.md` 4) `wiki/registros/log.md`.
 > Confírmame cuando hayas leído y dime el estado actual de la wiki."*
 
@@ -191,8 +244,12 @@ desde cualquier punto sin historial de chat previo. Toda la memoria está en los
 
 - `wiki/index.md` → estado actual del conocimiento acumulado
 - `wiki/registros/log.md` → última operación realizada
-- `RULES.md` + `.agentic/` → instrucciones operativas completas
+- `RULES.md` + `.agents/` → instrucciones operativas completas
 
 ---
+
+## 👤 Autor
+- **Nombre:** F.VilBer
+- **Email:** contactovilber@pm.me
 
 *Basado en el patrón [LLM Wiki](idea.md) — el conocimiento se compila una vez y se mantiene.*

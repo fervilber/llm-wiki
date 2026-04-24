@@ -32,9 +32,9 @@ Tipos válidos: `init` | `procesa` | `consulta` | `mantiene` | `diagrama` | `con
 ## [2026-04-23] config | Configuración Completa del Sistema
 - Scripts añadidos: `youtube_to_raw.py`, `pdf_to_raw.py`, `lint.py`, `search.py`
 - Documentación creada: `doc/user-guide.md`, `doc/architecture.md`, `doc/faq.md`, `doc/web-clipper-setup.md`
-- Skill Excalidraw integrada: `.agentic/skills/excalidraw.md` + referencias técnicas
+- Skill Excalidraw integrada: `.agents/skills/excalidraw/SKILL.md` + referencias técnicas
 - Carpeta de diagramas creada: `wiki/diagramas/`
-- Skill Git integrada: `.agentic/skills/git.md` — sincronización automática con GitHub
+- Skill Git integrada: `.agents/skills/git/SKILL.md` — sincronización automática con GitHub
 - Workflows actualizados: todos incluyen paso de `git push` automático al finalizar
 - Vocabulario normalizado: `procesar` en lugar de anglicismo `ingestar`
 - README y guías de usuario completamente actualizados

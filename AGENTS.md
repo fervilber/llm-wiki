@@ -1,4 +1,6 @@
-# AGENTES.md — Contexto para Agentes de Codificación IA
+# AGENTS.md — Contexto para Agentes de Codificación IA
+
+**Mantenedor Principal:** F.VilBer (contactovilber@pm.me)
 
 Este archivo documenta el proyecto LLM Wiki para que cualquier agente de IA pueda comprenderlo y operar sobre él de forma autónoma.
 
@@ -17,10 +19,10 @@ Este archivo documenta el proyecto LLM Wiki para que cualquier agente de IA pued
 ```
 raíz/
 ├── RULES.md                   # Constitución del sistema (léela primero)
-├── AGENTES.md                # Este archivo — contexto para IA
+├── AGENTS.md                 # Este archivo — contexto para IA
 ├── README.md                # Documentación para humanos
 │
-├── .agentic/                # 🧠 Cerebro del agente (instrucciones operativas)
+├── .agents/                # 🧠 Cerebro del agente (instrucciones operativas)
 │   ├── skills/             # Reglas lógicas por tarea
 │   │   ├── ingesta.md    # Procesamiento de fuentes → wiki
 │   │   ├── consulta.md   # Respuesta a preguntas desde wiki
@@ -67,12 +69,12 @@ raíz/
 Al iniciar una sesión en este proyecto, el agente debe:
 
 1. **Leer `RULES.md`** → comprende estructura y reglas operativas
-2. **Leer `.agentic/workflows/inicializacion.md`** → carga flujo de arranque
+2. **Leer `.agents/workflows/inicializacion.md`** → carga flujo de arranque
 3. **Verificar estado Git** → `git status`, `git log --oneline`
 4. **Cargar skills activas** → ingesta.md, consulta.md, mantenimiento.md
 5. **Reportar estado** al usuario
 
-**Prioridad de verdad**: Las instrucciones en `.agentic/` tienen prioridad sobre `/doc/`.
+**Prioridad de verdad**: Las instrucciones en `.agents/` tienen prioridad sobre `/doc/`.
 
 ---
 
@@ -80,11 +82,11 @@ Al iniciar una sesión en este proyecto, el agente debe:
 
 | Skill | Ubicación | Función |
 |-------|-----------|--------|
-| Ingesta | `.agentic/skills/ingesta.md` | Procesa `/raw/` → `/wiki/` |
-| Consulta | `.agentic/skills/consulta.md` | Responde desde `/wiki/` |
-| Mantenimiento | `.agentic/skills/mantenimiento.md` | Calidad del grafo |
-| Git | `.agentic/skills/git.md` | Sincronización |
-| Excalidraw | `.agentic/skills/excalidraw.md` | Diagramas |
+| Ingesta | `.agents/skills/ingesta/SKILL.md` | Procesa `/raw/` → `/wiki/` |
+| Consulta | `.agents/skills/consulta/SKILL.md` | Responde desde `/wiki/` |
+| Mantenimiento | `.agents/skills/mantenimiento/SKILL.md` | Calidad del grafo |
+| Git | `.agents/skills/git/SKILL.md` | Sincronización |
+| Excalidraw | `.agents/skills/excalidraw/SKILL.md` | Diagramas |
 
 ---
 
@@ -136,6 +138,7 @@ updated: YYYY-MM-DD
 ## Comandos del Usuario (Ejemplos)
 
 ```
+«Inicia sesión»                      → protocolo de arranque
 «Procesa raw/articulo.md»              → procesar fuente
 «¿Qué sabemos sobre [X]?»          → consultar wiki
 «Compara [A] y [B]»               → comparación
@@ -157,7 +160,7 @@ updated: YYYY-MM-DD
 ## Siguiente Pasos para el Agente
 
 1. Leer `RULES.md` completo
-2. Leer `.agentic/workflows/inicializacion.md`
+2. Leer `.agents/workflows/inicializacion.md`
 3. Verificar estado del proyecto
 4. Confirmar disponibilidad al usuario
 
