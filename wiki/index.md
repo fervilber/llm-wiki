@@ -13,6 +13,15 @@ Se actualiza automáticamente tras cada ingesta.
 
 ---
 
+## 👤 Autores (`/wiki/autores/`)
+> Fichas de cada autor cuyas fuentes han sido procesadas. Ver [[autores/_index-autores|Índice de Autores]].
+
+| Autor | Disciplina | Nº Fuentes |
+|-------|-----------|------------|
+| *(vacío — primera ingesta lo poblará)* | | |
+
+---
+
 ## 📁 Fuentes (`/wiki/fuentes/`)
 > Resúmenes de materiales originales procesados desde `/raw/`.
 
@@ -47,6 +56,7 @@ Se actualiza automáticamente tras cada ingesta.
 
 ## 📊 Estado del Sistema
 - **Total páginas**: 0
+- **Total autores registrados**: 0
 - **Total fuentes ingestadas**: 0
-- **Última actualización**: 2026-04-23
+- **Última actualización**: 2026-04-25
 - **Contradicciones abiertas**: 0

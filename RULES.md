@@ -13,7 +13,8 @@ Cualquier agente debe respetar estrictamente esta jerarquía para garantizar la 
 * /doc/ (Contexto Humano): Documentación de referencia, guías de usuario y arquitectura.
 * /raw/ (Entrada - Inmutable): Material bruto original. Prohibido modificar o borrar.
 * /wiki/ (Salida - Grafo de Conocimiento): El producto destilado y estructurado.
-  * fuentes/: Resúmenes de materiales originales y perfiles de autores/creadores.
+  * autores/: Fichas de autor — una página por cada persona u organización cuyas fuentes han sido procesadas.
+  * fuentes/: Resúmenes de materiales originales procesados desde /raw/.
   * entidades/: Objetos con nombre propio (personas, herramientas, organizaciones).
   * conceptos/: Ideas abstractas, métodos, teorías y modelos mentales.
   * registros/: Diario de operaciones (log) y estados del sistema.
@@ -65,10 +66,15 @@ YAML
 
 title: "Título de la Nota"
 aliases: [Sínonimo1, Sinonimo2]
-type: [entidad | concepto | fuente | registro]
+type: [entidad | concepto | fuente | registro | autor]
 tags: [clase/subclase] # Uso de taxonomía jerárquica
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
+# Campos adicionales para type: fuente
+authors: ["Nombre Apellido"]       # Obligatorio en notas de fuente
+# Campos adicionales para type: autor
+web: "https://..."
+afiliacion: "Institución"
 ---
 
 ## 4.2. Reglas de Sintaxis para Tags
@@ -100,5 +106,5 @@ El Agente es responsable de realizar validaciones lógicas tras cada operación:
 
 * Consistencia: Asegurar que el archivo de índice general refleja siempre la estructura actual de la wiki.
 
-Última actualización: 2026-04-23
+Última actualización: 2026-04-25
 Estado: Operativo

@@ -4,6 +4,7 @@ aliases: []
 type: fuente
 tags:
   - fuente/{{tipo}}   # Ej: fuente/articulo, fuente/video, fuente/libro, fuente/podcast
+authors: ["{{Nombre Apellido}}"]   # Lista de autores — usar kebab-case para el wikilink
 created: {{YYYY-MM-DD}}
 updated: {{YYYY-MM-DD}}
 source_date: {{YYYY-MM-DD}}   # Fecha de creación del material original
@@ -11,6 +12,10 @@ source_url: "{{URL o ruta en /raw/}}"
 ---
 
 # {{TÍTULO DE LA FUENTE}}
+
+## Autor/es
+- [[wiki/autores/nombre-apellido|Nombre Apellido]]
+<!-- Si el autor es desconocido: tag autor/anonimo en el YAML, omitir este enlace -->
 
 ## Resumen
 > Síntesis de los puntos más importantes. Máximo 5-7 oraciones.
