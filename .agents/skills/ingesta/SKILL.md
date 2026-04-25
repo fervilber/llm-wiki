@@ -1,3 +1,10 @@
+---
+name: ingesta
+description: Procesamiento estructurado de fuentes externas para su integración en el grafo de conocimiento.
+metadata:
+  author: F.VilBer
+---
+
 # Skill: Ingesta de Alta Densidad
 
 ## Propósito

@@ -1,3 +1,10 @@
+---
+name: git
+description: Control de versiones, commits locales y sincronización con repositorios remotos.
+metadata:
+  author: F.VilBer
+---
+
 # Skill: Git — Control de Versiones del Proyecto
 
 ## Estrategia General

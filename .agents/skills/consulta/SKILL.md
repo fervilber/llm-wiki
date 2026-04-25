@@ -1,3 +1,10 @@
+---
+name: consulta
+description: Gestión de respuestas a preguntas basadas exclusivamente en el contenido de la wiki.
+metadata:
+  author: F.VilBer
+---
+
 # Skill: Respuesta a Consultas
 
 ## Propósito

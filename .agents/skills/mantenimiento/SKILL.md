@@ -1,3 +1,10 @@
+---
+name: mantenimiento
+description: Auditoría y optimización de la calidad, coherencia y bidireccionalidad de los enlaces del grafo.
+metadata:
+  author: F.VilBer
+---
+
 # Skill: Mantenimiento y Calidad del Grafo
 
 ## Propósito

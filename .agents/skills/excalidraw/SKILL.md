@@ -1,3 +1,10 @@
+---
+name: excalidraw
+description: Creación y gestión de diagramas visuales y esquemas técnicos integrados en Obsidian.
+metadata:
+  author: F.VilBer
+---
+
 # Skill: Excalidraw — Diagramas y Esquemas desde el Agente
 
 ## ¿Para qué sirve esta habilidad?
