@@ -10,6 +10,14 @@ Markdown, visualizada en **Obsidian**.
 
 ---
 
+## 📺 Video de Presentación
+
+¡Mira este video para una demostración rápida de cómo funciona el ecosistema LLM Wiki!
+
+[![Presentación LLM Wiki](https://img.youtube.com/vi/ZRddDLqTXq0/0.jpg)](https://youtu.be/ZRddDLqTXq0?si=uHnWlguXinayEhCb)
+
+---
+
 ## 🎯 ¿Qué hace este proyecto?
 
 A diferencia de los sistemas RAG tradicionales (donde el LLM redescubre el

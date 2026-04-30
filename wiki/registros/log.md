@@ -39,3 +39,8 @@ Tipos válidos: `init` | `procesa` | `consulta` | `mantiene` | `diagrama` | `con
 - Vocabulario normalizado: `procesar` en lugar de anglicismo `ingestar`
 - README y guías de usuario completamente actualizados
 - Estado: Sistema listo para primera fuente. Skills y workflows operativos.
+
+## [2026-04-30] manual | Actualización de README con Video
+- Se ha añadido el video de presentación del proyecto al `README.md`.
+- Enlace: https://youtu.be/ZRddDLqTXq0?si=uHnWlguXinayEhCb
+- Objetivo: Simplificar la comprensión del proyecto para nuevos usuarios.
